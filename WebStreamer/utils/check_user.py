@@ -3,7 +3,7 @@ import datetime
 from WebStreamer.vars import Var
 import logging
 
-from WebStreamer.handlers.database import Database
+from WebStreamer.utils.database import Database
 
 DB_URL = Var.DB_URL
 DB_NAME = Var.DB_NAME
