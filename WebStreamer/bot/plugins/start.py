@@ -3,7 +3,8 @@ from WebStreamer.bot import StreamBot
 from WebStreamer.vars import Var
 from WebStreamer.utils.human_readable import humanbytes
 from WebStreamer.utils.database import Database
-from pyrogram import filters
+from pyrogram import filters, enums
+from pyrogram.enums.parse_mode import ParseMode
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant
 OWNER_ID = Var.OWNER_ID
@@ -126,19 +127,19 @@ async def start(b, m):
                             InlineKeyboardButton("Jᴏɪɴ ɴᴏᴡ 🔓", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
                             ]]
                     ),
-                    parse_mode="HTML"
+                    parse_mode=ParseMode.HTML
                 )
                 return
             except Exception:
                 await b.send_message(
                     chat_id=m.chat.id,
                     text="<i>Sᴏᴍᴇᴛʜɪɴɢ ᴡʀᴏɴɢ ᴄᴏɴᴛᴀᴄᴛ ᴍʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ</i> <b><a href='https://t.me/greymatters_bots_discussion'>[ ᴄʟɪᴄᴋ ʜᴇʀᴇ ]</a></b>",
-                    parse_mode="HTML",
+                    parse_mode=ParseMode.HTML,
                     disable_web_page_preview=True)
                 return
         await m.reply_text(
             text=START_TEXT.format(m.from_user.mention),
-            parse_mode="HTML",
+            parse_mode=ParseMode.HTML,
             disable_web_page_preview=True,
             reply_markup=START_BUTTONS
               )                                                                         
