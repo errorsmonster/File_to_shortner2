@@ -81,7 +81,7 @@ async def about(client, message):
 REPLY_ERROR = """<b>Use This Command as a Reply to any Telegram Message Without any Spaces.</b>"""
 
 
-@StreamBot.on_message(filters.private & filters.command("broadcast"))
+@StreamBot.on_message(filters.private & filters.command("broadcast") & filters.user(OWNER_ID))
 async def broadcast_handler_open(_, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
@@ -91,7 +91,7 @@ async def broadcast_handler_open(_, m):
     else:
         await broadcast(m, db)
 
-@StreamBot.on_message(filters.private & filters.command("stats"))
+@StreamBot.on_message(filters.private & filters.command("stats") & filters.user(OWNER_ID))
 async def sts(c, m):
     if m.from_user.id not in AUTH_USERS:
         await m.delete()
