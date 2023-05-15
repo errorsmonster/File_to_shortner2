@@ -14,6 +14,7 @@ class Var(object):
     API_ID = int(environ.get("API_ID"))
     API_HASH = str(environ.get("API_HASH"))
     BOT_TOKEN = str(environ.get("BOT_TOKEN"))
+    SESSION_NAME = str(getenv('SESSION_NAME', 'Star_Bots_Tamil'))    
     OWNER_ID = int(getenv("OWNER_ID", "1391556668"))
     SLEEP_THRESHOLD = int(environ.get("SLEEP_THRESHOLD", "60"))  # 1 minte
     WORKERS = int(environ.get("WORKERS", "6"))  # 6 workers = 6 commands at once
@@ -41,3 +42,4 @@ class Var(object):
     LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", "-1001342411240"))
     AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "1391556668").split())
     BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", True))
+    DATABASE_URL = str(getenv('DATABASE_URL', 'mongodb+srv://KarthikMovies:KarthikUK007@cluster0.4l5byki.mongodb.net/?retryWrites=true&w=majority'))
