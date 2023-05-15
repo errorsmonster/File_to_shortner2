@@ -11,6 +11,7 @@ from pyrogram.enums.parse_mode import ParseMode
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.enums.parse_mode import ParseMode
 from WebStreamer.utils.human_readable import humanbytes
+from WebStreamer.utils.file_properties import get_name, get_media_file_size
 
 @StreamBot.on_message(
     filters.private
