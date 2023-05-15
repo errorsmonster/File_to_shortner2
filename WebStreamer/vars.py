@@ -1,6 +1,7 @@
 # This file is a part of TG-FileStreamBot
 # Coding : Jyothis Jayanth [@EverythingSuckz]
 
+import os
 import sys
 from os import environ
 from dotenv import load_dotenv
