@@ -114,7 +114,7 @@ async def start(b, m):
                     await b.send_message(
                         chat_id=m.chat.id,
                         text="__Sᴏʀʀʏ Sɪʀ, Yᴏᴜ ᴀʀᴇ Bᴀɴɴᴇᴅ ᴛᴏ ᴜsᴇ ᴍᴇ. Cᴏɴᴛᴀᴄᴛ ᴛʜᴇ Dᴇᴠᴇʟᴏᴘᴇʀ__\n\n @greymatters_bots_discussion **Tʜᴇʏ Wɪʟʟ Hᴇʟᴘ Yᴏᴜ**",
-                        parse_mode="markdown",
+                        parse_mode=ParseMode.HTML,
                         disable_web_page_preview=True
                     )
                     return
@@ -153,7 +153,7 @@ async def start(b, m):
                     await b.send_message(
                         chat_id=m.chat.id,
                         text="**Sᴏʀʀʏ Sɪʀ, Yᴏᴜ ᴀʀᴇ Bᴀɴɴᴇᴅ ᴛᴏ ᴜsᴇ ᴍᴇ. Qᴜɪᴄᴋʟʏ ᴄᴏɴᴛᴀᴄᴛ** @greymatters_bots_discussion",
-                        parse_mode="markdown",
+                        parse_mode=ParseMode.HTML,
                         disable_web_page_preview=True
                     )
                     return
@@ -168,14 +168,14 @@ async def start(b, m):
                         
                         ]]
                     ),
-                    parse_mode="markdown"
+                    parse_mode=ParseMode.HTML
                 )
                 return
             except Exception:
                 await b.send_message(
                     chat_id=m.chat.id,
                     text="**Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍᴇ** [GreyMatter Support](https://t.me/greymatters_bots_discussion).",
-                    parse_mode="markdown",
+                    parse_mode=ParseMode.HTML,
                     disable_web_page_preview=True)
                 return
 
@@ -200,7 +200,7 @@ async def start(b, m):
 
         await m.reply_text(
             text=msg_text.format(file_name, file_size, stream_link),
-            parse_mode="HTML",
+            parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Dᴏᴡɴʟᴏᴀᴅ ɴᴏᴡ 📥", url=stream_link)]])
         )
 
@@ -230,7 +230,7 @@ async def help_handler(bot, message):
                 await bot.send_message(
                     chat_id=message.chat.id,
                     text="<i>Sᴏʀʀʏ Sɪʀ, Yᴏᴜ ᴀʀᴇ Bᴀɴɴᴇᴅ ᴛᴏ ᴜsᴇ ᴍᴇ. Cᴏɴᴛᴀᴄᴛ ᴛʜᴇ Dᴇᴠᴇʟᴏᴘᴇʀ</i>",
-                    parse_mode="HTML",
+                    parse_mode=ParseMode.HTML,
                     disable_web_page_preview=True
                 )
                 return
@@ -243,19 +243,19 @@ async def help_handler(bot, message):
                         InlineKeyboardButton("🤖 Jᴏɪɴ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
                         ]]
                 ),
-                parse_mode="markdown"
+                parse_mode=ParseMode.HTML
             )
             return
         except Exception:
             await bot.send_message(
                 chat_id=message.chat.id,
                 text="__Sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ Wʀᴏɴɢ. Cᴏɴᴛᴀᴄᴛ ᴍᴇ__ [GreyMatter Support](https://t.me/greymatters_bots_discussion).",
-                parse_mode="markdown",
+                parse_mode=ParseMode.HTML,
                 disable_web_page_preview=True)
             return
     await message.reply_text(
         text=HELP_TEXT,
-        parse_mode="HTML",
+        parse_mode=ParseMode.HTML,
         disable_web_page_preview=True,
         reply_markup=HELP_BUTTONS
         )
