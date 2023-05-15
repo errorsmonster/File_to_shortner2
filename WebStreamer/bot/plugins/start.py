@@ -76,4 +76,27 @@ async def about(client, message):
             parse_mode=ParseMode.HTML,
             reply_markup=reply_markup,
             disable_web_page_preview=True
-        )            
+        )
+            
+REPLY_ERROR = """<b>Use This Command as a Reply to any Telegram Message Without any Spaces.</b>"""
+
+
+@StreamBot.on_message(filters.private & filters.command("broadcast"))
+async def broadcast_handler_open(_, m):
+    if m.from_user.id not in AUTH_USERS:
+        await m.delete()
+        return
+    if m.reply_to_message is None:
+        await m.reply(REPLY_ERROR, quote=True)
+    else:
+        await broadcast(m, db)
+
+@StreamBot.on_message(filters.private & filters.command("stats"))
+async def sts(c, m):
+    if m.from_user.id not in AUTH_USERS:
+        await m.delete()
+        return
+    await m.reply_text(
+        text=f"**Total Users in Database 📂 :- {await db.total_users_count()}**",
+        quote=True
+    )            
