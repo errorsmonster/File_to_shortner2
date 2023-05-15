@@ -43,3 +43,5 @@ class Var(object):
     AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "1391556668").split())
     BROADCAST_AS_COPY = bool(os.environ.get("BROADCAST_AS_COPY", True))
     DATABASE_URL = str(getenv('DATABASE_URL', 'mongodb+srv://KarthikMovies:KarthikUK007@cluster0.4l5byki.mongodb.net/?retryWrites=true&w=majority'))
+    UPDATES_CHANNEL = str(getenv('UPDATES_CHANNEL', "Star_Bots_Tamil"))
+    BANNED_CHANNELS = list(set(int(x) for x in str(getenv("BANNED_CHANNELS", "-1001296894100")).split()))
