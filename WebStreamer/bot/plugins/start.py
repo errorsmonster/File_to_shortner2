@@ -15,23 +15,6 @@ STAR_BUTTONS = [
             ]
         ]
 
-@StreamBot.on_message(filters.private)
-async def _(bot, cmd):
-    await handle_user_status(bot, cmd)
-
-    chat_id = cmd.from_user.id
-    if not await db.is_user_exist(chat_id):
-        data = await client.get_me()
-        BOT_USERNAME = data.username
-        await db.add_user(chat_id)
-        if LOG_CHANNEL:
-            await client.send_message(
-                LOG_CHANNEL,
-                f"**#New_User :- \n\nNew User [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n ID :- {message.from_user.id} Started @{BOT_USERNAME} !!**",
-            )
-        else:
-            logging.info(f"New User :- Name :- {message.from_user.first_name} ID :- {message.from_user.id}")
-
 
 @StreamBot.on_message(filters.command(["start"]) & filters.private)
 async def start(_, m: Message):
