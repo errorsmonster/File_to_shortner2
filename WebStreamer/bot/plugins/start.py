@@ -1,11 +1,9 @@
-# This file is a part of TG-FileStreamBot
-# Coding : Jyothis Jayanth [@EverythingSuckz]
-
 from pyrogram import filters, enums
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, CallbackQuery
 from WebStreamer.vars import Var 
 from WebStreamer.bot import StreamBot
 from pyrogram.enums.parse_mode import ParseMode
+import aiofiles
 from WebStreamer.handlers.broadcast import broadcast
 from WebStreamer.handlers.database import Database
 from WebStreamer.handlers.check_user import handle_user_status
