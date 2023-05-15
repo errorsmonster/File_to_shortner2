@@ -88,3 +88,7 @@ def get_name(media_msg: Union[Message, FileId]) -> str:
         file_name = f"{media_type}-{date}{ext}"
 
     return file_name
+
+def get_media_file_size(m):
+    media = get_media_from_message(m)
+    return getattr(media, "file_size", 0)
