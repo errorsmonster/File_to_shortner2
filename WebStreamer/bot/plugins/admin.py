@@ -4,9 +4,9 @@ from WebStreamer.vars import Var
 from WebStreamer.bot import StreamBot
 from pyrogram.enums.parse_mode import ParseMode
 import aiofiles
-from WebStreamer.handlers.broadcast import broadcast
-from WebStreamer.handlers.database import Database
-from WebStreamer.handlers.check_user import handle_user_status
+from WebStreamer.utils.broadcast import broadcast
+from WebStreamer.utils.database import Database
+from WebStreamer.utils.check_user import handle_user_status
 LOG_CHANNEL = Var.LOG_CHANNEL
 AUTH_USERS = Var.AUTH_USERS
 DB_URL = Var.DB_URL
