@@ -40,7 +40,7 @@ START_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('Hᴇʟᴘ', callback_data='help'),
         InlineKeyboardButton('Aʙᴏᴜᴛ', callback_data='about'),
-        InlineKeyboardButton('🤖 Bot Channel', url=https://t.me/Star_Bots_Tamil)
+        InlineKeyboardButton('🤖 Bot Channel', url="https://t.me/Star_Bots_Tamil")
         ]]
     )
 HELP_BUTTONS = InlineKeyboardMarkup(
