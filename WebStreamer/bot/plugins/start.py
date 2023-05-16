@@ -223,7 +223,7 @@ async def start(b, m):
         stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         watch_link = "https://{}:{}/Watch/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         short_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, file_hash, log_msg.id)
-        shorten_urls = await short(link)
+        shorten_urls = await short(stream_link)
         
         msg_text ="""
 <b><i>Your Link is Generated... ⚡</i>\n
@@ -239,7 +239,7 @@ async def start(b, m):
 
 
         await m.reply_text(
-            text=msg_text.format(file_name, file_size, file_caption, stream_link, watch_link, short_link),
+            text=msg_text.format(file_name, file_size, file_caption, stream_link, watch_link, short_link, shorten_urls),
             parse_mode=ParseMode.HTML, quote=True,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Download Link", url=stream_link)], [InlineKeyboardButton("🖥 Watch Link", url=watch_link)], [InlineKeyboardButton("🔗 Shortened Link", url=short_link)], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/Star_Bots_Tamil")]])
         )
