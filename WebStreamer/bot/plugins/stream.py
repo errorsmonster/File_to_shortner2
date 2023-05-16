@@ -24,6 +24,8 @@ from WebStreamer.utils.file_properties import get_name, get_media_file_size
 from pyrogram.errors import FloodWait, UserNotParticipant
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
+link = update.matches[0].group(0),
+
 def get_media_file_name(m):
     media = m.video or m.document or m.audio
     if media and media.file_name:
