@@ -82,6 +82,7 @@ async def private_receive_handler(c: Client, m: Message):
             return
     try:
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
+        file_hash = get_hash(log_msg, Var.HASH_LENGTH)
         file_name = get_media_file_name(m)
         file_size = humanbytes(get_media_file_size(m))
         file_caption = m.caption
