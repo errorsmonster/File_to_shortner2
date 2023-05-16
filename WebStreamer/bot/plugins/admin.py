@@ -17,7 +17,7 @@ from pyrogram.handlers import MessageHandler
 from pyrogram import filters, Client, enums
 from pyrogram.enums.parse_mode import ParseMode
 from pyrogram.types import Message
-
+OWNER_ID = Var.OWNER_ID
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 broadcast_ids = {}
 
