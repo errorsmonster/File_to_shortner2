@@ -1,4 +1,5 @@
 import os
+import aiohttp
 import urllib.parse
 from WebStreamer.bot import StreamBot
 from WebStreamer.vars import Var
