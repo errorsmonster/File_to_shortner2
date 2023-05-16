@@ -13,9 +13,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.enums.parse_mode import ParseMode
 from WebStreamer.utils.human_readable import humanbytes
 from WebStreamer.utils.file_properties import get_name, get_media_file_size
-db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 from pyrogram.errors import FloodWait, UserNotParticipant
-from WebStreamer.utils.database import Database
 
 def get_media_file_name(m):
     media = m.video or m.document or m.audio
