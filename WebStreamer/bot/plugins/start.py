@@ -50,9 +50,6 @@ ABOUT_TEXT = """
 START_BUTTONS = InlineKeyboardMarkup(
         [[
         [
-        InlineKeyboardButton('👨🏻‍✈️ Devloper', user_id=OWNER_ID)
-        ], 
-        [
         InlineKeyboardButton('🤖 Bot Channel', url=f"https://t.me/Star_Bots_Tamil"),
         InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')        
         ],        
@@ -63,9 +60,6 @@ START_BUTTONS = InlineKeyboardMarkup(
 HELP_BUTTONS = InlineKeyboardMarkup(
         [[
         [
-        InlineKeyboardButton('👨🏻‍✈️ Devloper', user_id=OWNER_ID)
-        ], 
-        [
         InlineKeyboardButton('🤖 Bot Channel', url=f"https://t.me/Star_Bots_Tamil"),
         InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')        
         ],        
@@ -75,9 +69,6 @@ HELP_BUTTONS = InlineKeyboardMarkup(
     )
 ABOUT_BUTTONS = InlineKeyboardMarkup(
         [[
-        [
-        InlineKeyboardButton('👨🏻‍✈️ Devloper', user_id=OWNER_ID)
-        ], 
         [
         InlineKeyboardButton('🤖 Bot Channel', url=f"https://t.me/Star_Bots_Tamil"),
         InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')        
