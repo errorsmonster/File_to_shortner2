@@ -49,35 +49,25 @@ ABOUT_TEXT = """
 
 START_BUTTONS = InlineKeyboardMarkup(
         [[
-        [
-        InlineKeyboardButton('🤖 Bot Channel', url=f"https://t.me/Star_Bots_Tamil"),
-        InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')        
-        ],        
-        InlineKeyboardButton('💁🏻 Help', callback_data='help'),
-        InlineKeyboardButton('About 😁', callback_data='about')
+        InlineKeyboardButton('Hᴇʟᴘ', callback_data='help'),
+        InlineKeyboardButton('Aʙᴏᴜᴛ', callback_data='about'),
+        InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close')
         ]]
     )
 HELP_BUTTONS = InlineKeyboardMarkup(
         [[
-        [
-        InlineKeyboardButton('🤖 Bot Channel', url=f"https://t.me/Star_Bots_Tamil"),
-        InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')        
-        ],        
-        InlineKeyboardButton('About 😁', callback_data='about'),
-        InlineKeyboardButton('🏠 Home', callback_data='home')
+        InlineKeyboardButton('Hᴏᴍᴇ', callback_data='home'),
+        InlineKeyboardButton('Aʙᴏᴜᴛ', callback_data='about'),
+        InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close')
         ]]
     )
 ABOUT_BUTTONS = InlineKeyboardMarkup(
         [[
-        [
-        InlineKeyboardButton('🤖 Bot Channel', url=f"https://t.me/Star_Bots_Tamil"),
-        InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')        
-        ],        
-        InlineKeyboardButton('💁🏻 Help', callback_data='help'),
-        InlineKeyboardButton('🏠 Home', callback_data='home')
+        InlineKeyboardButton('Hᴏᴍᴇ', callback_data='home'),
+        InlineKeyboardButton('Hᴇʟᴘ', callback_data='help'),
+        InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close')
         ]]
     )
-
 @StreamBot.on_callback_query()
 async def cb_data(bot, update):
     if update.data == "home":
