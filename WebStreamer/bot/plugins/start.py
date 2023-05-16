@@ -125,7 +125,7 @@ async def start(b, m):
         await db.add_user(m.from_user.id)
         await b.send_message(
             Var.LOG_CHANNEL,
-            f"**#New_User_Joined\n\n᚛›Name :- <a href=tg://user?id={m.from_user.id}>{m..first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot>File to Link Star Bots</a>**"
+            f"**#New_User_Joined\n\n᚛›Name :- <a href=tg://user?id={m.from_user.id}>{m..first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot>File to Link Star Bots</a>**", parse_mode=ParseMode.HTML
         )
     usr_cmd = m.text.split("_")[-1]
     if usr_cmd == "/start":
