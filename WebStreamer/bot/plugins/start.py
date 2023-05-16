@@ -93,19 +93,22 @@ async def cb_data(bot, update):
         await update.message.edit_text(
             text=START_TEXT.format(update.from_user.mention),
             disable_web_page_preview=True,
-            reply_markup=START_BUTTONS
+            reply_markup=START_BUTTONS,
+            quote=True    
         )
     elif update.data == "help":
         await update.message.edit_text(
             text=HELP_TEXT,
             disable_web_page_preview=True,
-            reply_markup=HELP_BUTTONS
+            reply_markup=HELP_BUTTONS,
+            quote=True    
         )
     elif update.data == "about":
         await update.message.edit_text(
             text=ABOUT_TEXT,
             disable_web_page_preview=True,
-            reply_markup=ABOUT_BUTTONS
+            reply_markup=ABOUT_BUTTONS,
+            quote=True    
         )
     else:
         await update.message.delete()
@@ -144,13 +147,14 @@ async def start(b, m):
                         chat_id=m.chat.id,
                         text="<b>Sorry <a href='tg://user?id={m.from_user.id}>{m..first_name}</a>,\nYou're Banned 🚫 To Use Me❓.\n\n Contact Developer <a href='https://t.me/Star_Bots_Tamil_Support'>Star Bots Tamil Support</a> They will Help You.</b>",
                         parse_mode=ParseMode.HTML,
-                        disable_web_page_preview=True
+                        disable_web_page_preview=True,
+                        quote=True    
                     )
                     return
             except UserNotParticipant:
                 await b.send_message(
                     chat_id=m.chat.id,
-                    text="<b>Please Join Our Updates Channel to Use Me❗\n\nDue To Overload, Only Channel Subscribers Can Use to Me❗.</b>",
+                    text="<b>Please Join Our Updates Channel to Use Me❗\n\nDue To Overload, Only Channel Subscribers Can Use to Me❗.</b>", quote=True,
                     reply_markup=InlineKeyboardMarkup(
                         [[
                             InlineKeyboardButton("🤖 Join Our Bot Channel", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
@@ -164,13 +168,15 @@ async def start(b, m):
                     chat_id=m.chat.id,
                     text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/Star_Bots_Tamil_Support><b>Star Bots Tamil Support</b></a></b>",
                     parse_mode=ParseMode.HTML,
-                    disable_web_page_preview=True)
+                    disable_web_page_preview=True,
+                    quote=True)
                 return
         await m.reply_text(
             text=START_TEXT.format(m.from_user.mention),
             parse_mode=ParseMode.HTML,
             disable_web_page_preview=True,
-            reply_markup=START_BUTTONS
+            reply_markup=START_BUTTONS,
+            quote=True    
               )                                                                         
                                                                                        
                                                                             
@@ -205,7 +211,8 @@ async def start(b, m):
                     chat_id=m.chat.id,
                     text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/Star_Bots_Tamil_Support><b>Star Bots Tamil Support</b></a></b>",
                     parse_mode=ParseMode.HTML,
-                    disable_web_page_preview=True)
+                    disable_web_page_preview=True,
+                    quote=True)
                 return
 
         get_msg = await b.get_messages(chat_id=Var.BIN_CHANNEL, message_ids=int(usr_cmd))
@@ -233,7 +240,7 @@ async def start(b, m):
 
         await m.reply_text(
             text=msg_text.format(file_name, file_size, file_caption, stream_link, watch_link, short_link),
-            parse_mode=ParseMode.HTML,
+            parse_mode=ParseMode.HTML, quote=True,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Download Link", url=stream_link)], [InlineKeyboardButton("🖥 Watch Link", url=watch_link)], [InlineKeyboardButton("🔗 Shortened Link", url=short_link)], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/Star_Bots_Tamil")]])
         )
 
@@ -241,10 +248,11 @@ async def start(b, m):
 
 @StreamBot.on_message(filters.private & filters.command(["about"]))
 async def start(bot, update):
-    await bot.reply(
+    await update.reply_text(
         text=ABOUT_TEXT.format(update.from_user.mention),
         disable_web_page_preview=True,
-        reply_markup=ABOUT_BUTTONS
+        reply_markup=ABOUT_BUTTONS,
+        quote=True    
     )
 
 
@@ -264,7 +272,8 @@ async def help_handler(bot, message):
                     chat_id=message.chat.id,
                     text="<b>Sorry <a href='tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>,\nYou're Banned 🚫 To Use Me❓.\n\n Contact Developer <a href='https://t.me/Star_Bots_Tamil_Support'>Star Bots Tamil Support</a> They will Help You.</b>",
                     parse_mode=ParseMode.HTML,
-                    disable_web_page_preview=True
+                    disable_web_page_preview=True,
+                    quote=True
                 )
                 return
         except UserNotParticipant:
@@ -284,13 +293,15 @@ async def help_handler(bot, message):
                 chat_id=message.chat.id,
                 text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/Star_Bots_Tamil_Support><b>Star Bots Tamil Support</b></a></b>",
                 parse_mode=ParseMode.HTML,
-                disable_web_page_preview=True)
+                disable_web_page_preview=True,
+                quote=True)
             return
     await message.reply_text(
         text=HELP_TEXT,
         parse_mode=ParseMode.HTML,
         disable_web_page_preview=True,
-        reply_markup=HELP_BUTTONS
+        reply_markup=HELP_BUTTONS,
+        quote=True
         )
 
 BITLY_API = os.environ.get("BITLY_API", "aa2132168583d283fb288625d9352f2c5835512a")
