@@ -19,7 +19,7 @@ OWNER_ID = Var.OWNER_ID
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
 START_TEXT = """
-<b><i>Hello 👋🏻</i>{},\n
+<b><i>Hello 👋🏻</i> {},\n
 I'm Star Bots Tamil's Official File to Link Bot (Link Generator Bot). Maintained By :- <a href='https://t.me/Star_Bots_Tamil'>Star Bots Tamil</a>.\n
 Click on /help to Get More Information.\n
 Warning 🚸\n
@@ -153,7 +153,8 @@ async def start(b, m):
             text=START_TEXT.format(m.from_user.mention),
             parse_mode=ParseMode.HTML,
             disable_web_page_preview=True,
-            reply_markup=START_BUTTONS    
+            reply_markup=START_BUTTONS,
+            quote=True    
               )                                                                         
                                                                                        
                                                                             
