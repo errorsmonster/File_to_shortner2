@@ -299,7 +299,6 @@ EZ4SHORT_API = os.environ.get("EZ4SHORT_API", "e41618d805b3c4256dfa99abde6ef11fc
 TINYURL_API = os.environ.get("TINYURL_API", "iRkhyhlmfJ07cFVsFV0NpvX6dOWZIwPglbq8jQDuSBMqAEk5Y81BX04ejVQk")
 DROPLINK_API = os.environ.get("DROPLINK_API", "1d85e33efc4969b36e0f6c0a017aaaefd8accccc")
 TNSHORT_API = os.environ.get("TNSHORT_API", "d03a53149bf186ac74d58ff80d916f7a79ae5745")
-SHAREUS_API = os.environ.get("SHAREUS_API", "IiXFmlsLukgMvDpc3t3FHbLal4u1")
 
 reply_markup = InlineKeyboardMarkup(
         [[
@@ -449,18 +448,7 @@ async def short(link):
     except Exception as error:
         print(f"Ez4short.com Error :- {error}")
 
-    # Shareus.io Shortener
-    try:
-        api_url = "https://shareus.io/api" 
-        params = {'api': SHAREUS_API, 'url': link}
-        async with aiohttp.ClientSession() as session:
-            async with session.get(api_url, params=params, raise_for_status=True) as response:
-                data = await response.json()
-                url = data["shortenedUrl"]
-                shorten_urls += f"\n**Shareus.io :- {url}**\n"
-    except Exception as error:
-        print(f"Shareus.io Error :- {error}")
-    
+   
     # Send the text
     try:
         shorten_urls += ""
