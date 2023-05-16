@@ -8,6 +8,7 @@ from pyrogram.enums.parse_mode import ParseMode
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant
 OWNER_ID = Var.OWNER_ID
+UPDATES_CHANNEL = Var.UPDATES_CHANNEL
 
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
@@ -40,7 +41,7 @@ START_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('Hᴇʟᴘ', callback_data='help'),
         InlineKeyboardButton('Aʙᴏᴜᴛ', callback_data='about'),
-        InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close')
+        InlineKeyboardButton('Bot', chat_id=UPDATES_CHANNEL)
         ]]
     )
 HELP_BUTTONS = InlineKeyboardMarkup(
