@@ -200,7 +200,6 @@ async def start(b, m):
         stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         watch_link = "https://{}:{}/Watch/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         short_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, file_hash, log_msg.id)
-        shorten_urls = await short(stream_link)
         
         msg_text ="""
 <b><i>Your Link is Generated... ⚡</i>\n
@@ -210,13 +209,12 @@ async def start(b, m):
 📥 Download Link :- {}\n
 🖥 Watch Link :- {}\n
 🔗 Shortened Link :- {}\n
-{}\n
 ❗ Note :- This Link is Permanent and Won't Gets Expired 🚫\n
 ©️ <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></b>"""
 
 
         await m.reply_text(
-            text=msg_text.format(file_name, file_size, file_caption, stream_link, watch_link, short_link, shorten_urls),
+            text=msg_text.format(file_name, file_size, file_caption, stream_link, watch_link, short_link),
             parse_mode=ParseMode.HTML, quote=True,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Download Link", url=stream_link)], [InlineKeyboardButton("🖥 Watch Link", url=watch_link)], [InlineKeyboardButton("🔗 Shortened Link", url=short_link)], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/Star_Bots_Tamil")]])
         )
