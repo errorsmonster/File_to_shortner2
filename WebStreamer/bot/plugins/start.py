@@ -125,14 +125,13 @@ async def start(b, m):
                         chat_id=m.chat.id,
                         text="<b>Sorry <a href='tg://user?id={m.from_user.id}>{m..first_name}</a>,\nYou're Banned 🚫 To Use Me❓.\n\n Contact Developer <a href='https://t.me/Star_Bots_Tamil_Support'>Star Bots Tamil Support</a> They will Help You.</b>",
                         parse_mode=ParseMode.HTML,
-                        disable_web_page_preview=True,
-                        quote=True    
+                        disable_web_page_preview=True    
                     )
                     return
             except UserNotParticipant:
                 await b.send_message(
                     chat_id=m.chat.id,
-                    text="<b>Please Join Our Updates Channel to Use Me❗\n\nDue To Overload, Only Channel Subscribers Can Use to Me❗.</b>", quote=True,
+                    text="<b>Please Join Our Updates Channel to Use Me❗\n\nDue To Overload, Only Channel Subscribers Can Use to Me❗.</b>",
                     reply_markup=InlineKeyboardMarkup(
                         [[
                             InlineKeyboardButton("🤖 Join Our Bot Channel", url=f"https://t.me/{Var.UPDATES_CHANNEL}")
@@ -146,15 +145,13 @@ async def start(b, m):
                     chat_id=m.chat.id,
                     text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/Star_Bots_Tamil_Support><b>Star Bots Tamil Support</b></a></b>",
                     parse_mode=ParseMode.HTML,
-                    disable_web_page_preview=True,
-                    quote=True)
+                    disable_web_page_preview=True)
                 return
         await m.reply_text(
             text=START_TEXT.format(m.from_user.mention),
             parse_mode=ParseMode.HTML,
             disable_web_page_preview=True,
-            reply_markup=START_BUTTONS,
-            quote=True    
+            reply_markup=START_BUTTONS    
               )                                                                         
                                                                                        
                                                                             
@@ -189,8 +186,7 @@ async def start(b, m):
                     chat_id=m.chat.id,
                     text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/Star_Bots_Tamil_Support><b>Star Bots Tamil Support</b></a></b>",
                     parse_mode=ParseMode.HTML,
-                    disable_web_page_preview=True,
-                    quote=True)
+                    disable_web_page_preview=True)
                 return
 
         get_msg = await b.get_messages(chat_id=Var.BIN_CHANNEL, message_ids=int(usr_cmd))
