@@ -20,7 +20,8 @@ db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
 START_TEXT = """
 <b><i>Hello 👋🏻</i>{},\n
-I'm Star Bots Tamil's Official File to Link Bot (Link Generator Bot). Maintained By :- <a href='https://t.me/Star_Bots_Tamil'>Star Bots Tamil</a>. Click on /help to Get More Information.\n
+I'm Star Bots Tamil's Official File to Link Bot (Link Generator Bot). Maintained By :- <a href='https://t.me/Star_Bots_Tamil'>Star Bots Tamil</a>.\n
+Click on /help to Get More Information.\n
 Warning 🚸\n
 🔞 Porn Contents Leads to Permanent Ban You. Check "About 😁"</b>"""
 
@@ -34,7 +35,8 @@ Available Commands\n
 ● /start - Check if 😊 I'm Alive
 ● /help - How to Use❓
 ● /about - to Know About Me 😌
-● /short - Use This Command with Bot Generated Link 🔗 to Get Shorted Links 🔗\n
+● /short - Use This Command with Bot Generated Link 🔗 to Get Shorted Links 🔗
+Example :- <code>/short https://t.me/Star_Bots_Tamil</code>\n
 Warning ⚠️\n
 🔞 Porn Contents Leads to Permanent Ban You.</b>"""
 
