@@ -1,3 +1,4 @@
+import os
 import urllib.parse
 from WebStreamer.bot import StreamBot
 from WebStreamer.vars import Var
