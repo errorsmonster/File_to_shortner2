@@ -9,6 +9,9 @@ from pyrogram.enums.parse_mode import ParseMode
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant
 from pyshorteners import Shortener
+from pyrogram import Client, filters, enums
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InlineQueryResultArticle, InputTextMessageContent
+from pyrogram.handlers import MessageHandler
 OWNER_ID = Var.OWNER_ID
 
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
