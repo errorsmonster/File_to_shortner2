@@ -74,22 +74,19 @@ async def cb_data(bot, update):
         await update.message.edit_text(
             text=START_TEXT.format(update.from_user.mention),
             disable_web_page_preview=True,
-            reply_markup=START_BUTTONS,
-            quote=True    
+            reply_markup=START_BUTTONS
         )
     elif update.data == "help":
         await update.message.edit_text(
             text=HELP_TEXT,
             disable_web_page_preview=True,
-            reply_markup=HELP_BUTTONS,
-            quote=True    
+            reply_markup=HELP_BUTTONS    
         )
     elif update.data == "about":
         await update.message.edit_text(
             text=ABOUT_TEXT,
             disable_web_page_preview=True,
-            reply_markup=ABOUT_BUTTONS,
-            quote=True    
+            reply_markup=ABOUT_BUTTONS    
         )
     else:
         await update.message.delete()
