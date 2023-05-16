@@ -5,6 +5,7 @@ from WebStreamer.bot import StreamBot
 from WebStreamer.vars import Var
 from WebStreamer.utils.human_readable import humanbytes
 from WebStreamer.utils.database import Database
+from WebStreamer.utils import get_hash, get_name
 from pyrogram import filters, enums
 from pyrogram.enums.parse_mode import ParseMode
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
@@ -208,6 +209,7 @@ async def start(b, m):
                 return
 
         get_msg = await b.get_messages(chat_id=Var.BIN_CHANNEL, message_ids=int(usr_cmd))
+        file_hash = get_hash(log_msg, Var.HASH_LENGTH)
         file_name = get_media_file_name(get_msg)
         file_size = humanbytes(get_media_file_size(get_msg))
         file_caption = m.caption
