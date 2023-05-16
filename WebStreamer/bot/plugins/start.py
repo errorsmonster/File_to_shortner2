@@ -67,7 +67,17 @@ HELP_BUTTONS = InlineKeyboardMarkup(
         ]]
     )
 ABOUT_BUTTONS = InlineKeyboardMarkup(
-
+        [[
+        [
+        InlineKeyboardButton('👨🏻‍✈️ Devloper', user_id=OWNER_ID)
+        ], 
+        [
+        InlineKeyboardButton('🤖 Bot Channel', url=f"https://t.me/Star_Bots_Tamil"),
+        InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')        
+        ],        
+        InlineKeyboardButton('💁🏻 Help', callback_data='help'),
+        InlineKeyboardButton('🏠 Home', callback_data='home')
+        ]]
     )
 
 @StreamBot.on_callback_query()
