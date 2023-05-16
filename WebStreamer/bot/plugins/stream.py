@@ -6,6 +6,7 @@ import logging
 from pyrogram import filters, errors, Client
 from WebStreamer.vars import Var
 from urllib.parse import quote_plus
+from WebStreamer.utils.database import Database
 from WebStreamer.bot import StreamBot, logger
 from WebStreamer.utils import get_hash, get_name
 from pyrogram.enums.parse_mode import ParseMode
@@ -14,6 +15,7 @@ from pyrogram.enums.parse_mode import ParseMode
 from WebStreamer.utils.human_readable import humanbytes
 from WebStreamer.utils.file_properties import get_name, get_media_file_size
 from pyrogram.errors import FloodWait, UserNotParticipant
+db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
 def get_media_file_name(m):
     media = m.video or m.document or m.audio
