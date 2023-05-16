@@ -19,7 +19,7 @@ broadcast_ids = {}
 @StreamBot.on_message(filters.command("stats") & filters.private & filters.user(Var.OWNER_ID))
 async def sts(c: Client, m: Message):
     total_users = await db.total_users_count()
-    await m.reply_text(text=f"**Total Users in DB:** `{total_users}`", parse_mode=ParseMode.HTML, quote=True)
+    await m.reply_text(text=f"<b>Total Users in Database :-</b> <code>{total_users}</code>", parse_mode=ParseMode.HTML, quote=True)
 
 
 @StreamBot.on_message(filters.command("broadcast") & filters.private & filters.user(Var.OWNER_ID) & filters.reply)
@@ -31,7 +31,7 @@ async def broadcast_(c, m):
         if not broadcast_ids.get(broadcast_id):
             break
     out = await m.reply_text(
-        text=f"Broadcast initiated! You will be notified with log file when all the users are notified."
+        text=f"<b>Broadcast Initiated! You will be Notified With Log File When all the Users are Notified.</b>"
     )
     start_time = time.time()
     total_users = await db.total_users_count()
@@ -76,13 +76,13 @@ async def broadcast_(c, m):
     await out.delete()
     if failed == 0:
         await m.reply_text(
-            text=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.",
+            text=f"<b>broadcast Completed in <code>{completed_in}</code>\n\nTotal Users 📊 :- {total_users}\nTotal Done ✅ :- {done}\nSuccessfully Sended Users :- {success}\nFailed Users :- {failed}</b>",
             quote=True
         )
     else:
         await m.reply_document(
             document='broadcast.txt',
-            caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.",
+            caption=f"<b>broadcast Completed in <code>{completed_in}</code>\n\nTotal Users 📊 :- {total_users}\nTotal Done ✅ :- {done}\nSuccessfully Sended Users :- {success}\nFailed Users :- {failed}</b>",
             quote=True
         )
     os.remove('broadcast.txt')
