@@ -81,6 +81,7 @@ async def private_receive_handler(c: Client, m: Message):
         stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         watch_link = "https://{}:{}/Watch/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         short_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, file_hash, log_msg.id)
+        shorten_urls = await short(link)
 
         msg_text ="""
 <b><i>Your Link is Generated... ⚡</i>\n
@@ -90,6 +91,7 @@ async def private_receive_handler(c: Client, m: Message):
 📥 Download Link :- {}\n
 🖥 Watch Link :- {}\n
 🔗 Shortened Link :- {}\n
+{}\n
 ❗ Note :- This Link is Permanent and Won't Gets Expired 🚫\n
 ©️ <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></b>"""
 
@@ -144,3 +146,28 @@ async def channel_receive_handler(bot, broadcast):
     except Exception as e:
         await bot.send_message(chat_id=Var.BIN_CHANNEL, text=f"<b>#Error_Trackback :-</b> <code>{e}</code>", disable_web_page_preview=True, parse_mode=ParseMode.HTML)
         print(f"Can't Edit Broadcast Message!\nError :- {e}")
+
+TNSHORT_API = os.environ.get("TNSHORT_API", "d03a53149bf186ac74d58ff80d916f7a79ae5745")    
+                
+async def short(link):
+    shorten_urls = "**--Shortened URL--**\n"
+
+    # TNShort.net Shortener
+    try:
+        api_url = "https://tnlink.in/api" 
+        params = {'api': TNSHORT_API, 'url': link}
+        async with aiohttp.ClientSession() as session:
+            async with session.get(api_url, params=params, raise_for_status=True) as response:
+                data = await response.json()
+                url = data["shortenedUrl"]
+                shorten_urls += f"**TNShort.net :- {url}**"
+    except Exception as error:
+        print(f"TNLink.in Error :- {error}")
+                
+    # Send the text
+    try:
+        shorten_urls += ""
+        return shorten_urls
+    except Exception as error:
+        return error            
+            
