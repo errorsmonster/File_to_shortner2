@@ -84,14 +84,13 @@ async def private_receive_handler(c: Client, m: Message):
     try:
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
         file_hash = get_hash(log_msg, Var.HASH_LENGTH)
-        link = m.matches[0].group(0),
         file_name = get_media_file_name(m)
         file_size = humanbytes(get_media_file_size(m))
         file_caption = m.caption
         stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         watch_link = "https://{}:{}/Watch/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         short_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, file_hash, log_msg.id)
-        shorten_urls = await short(link)
+        shorten_urls = await short(stream_link)
 
         msg_text ="""
 <b><i>Your Link is Generated... ⚡</i>\n
@@ -159,20 +158,20 @@ async def channel_receive_handler(bot, broadcast):
 
 TNSHORT_API = os.environ.get("TNSHORT_API", "d03a53149bf186ac74d58ff80d916f7a79ae5745")    
                 
-async def short(link):
-    shorten_urls = "**--Shortened URL--**\n"
+async def short(stream_link):
+    shorten_urls = "**--Shortened 📥 Download Link--**\n"
 
     # TNShort.net Shortener
     try:
-        api_url = "https://tnlink.in/api" 
-        params = {'api': TNSHORT_API, 'url': link}
+        api_url = "https://tnshort.in/api" 
+        params = {'api': TNSHORT_API, 'url': stream_link}
         async with aiohttp.ClientSession() as session:
             async with session.get(api_url, params=params, raise_for_status=True) as response:
                 data = await response.json()
                 url = data["shortenedUrl"]
                 shorten_urls += f"**TNShort.net :- {url}**"
     except Exception as error:
-        print(f"TNLink.in Error :- {error}")
+        print(f"TNShort.net Error :- {error}")
                 
     # Send the text
     try:
