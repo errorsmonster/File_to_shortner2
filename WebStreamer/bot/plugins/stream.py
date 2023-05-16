@@ -24,7 +24,6 @@ from WebStreamer.utils.file_properties import get_name, get_media_file_size
 from pyrogram.errors import FloodWait, UserNotParticipant
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
-link = update.matches[0].group(0),
 
 def get_media_file_name(m):
     media = m.video or m.document or m.audio
@@ -85,6 +84,7 @@ async def private_receive_handler(c: Client, m: Message):
     try:
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
         file_hash = get_hash(log_msg, Var.HASH_LENGTH)
+        link = m.matches[0].group(0),
         file_name = get_media_file_name(m)
         file_size = humanbytes(get_media_file_size(m))
         file_caption = m.caption
