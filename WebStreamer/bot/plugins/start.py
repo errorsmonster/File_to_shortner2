@@ -49,23 +49,23 @@ ABOUT_TEXT = """
 
 START_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('Hᴇʟᴘ', callback_data='help'),
-        InlineKeyboardButton('Aʙᴏᴜᴛ', callback_data='about'),
-        InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close')
+        InlineKeyboardButton('💁🏻 Help', callback_data='help'),
+        InlineKeyboardButton('About 😁', callback_data='about'),
+        InlineKeyboardButton('🚫 Close', callback_data='close')
         ]]
     )
 HELP_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('Hᴏᴍᴇ', callback_data='home'),
-        InlineKeyboardButton('Aʙᴏᴜᴛ', callback_data='about'),
-        InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close')
+        InlineKeyboardButton('🏠 Home', callback_data='home'),
+        InlineKeyboardButton('About 😁', callback_data='about'),
+        InlineKeyboardButton('🚫 Close', callback_data='close')
         ]]
     )
 ABOUT_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('Hᴏᴍᴇ', callback_data='home'),
-        InlineKeyboardButton('Hᴇʟᴘ', callback_data='help'),
-        InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close')
+        InlineKeyboardButton('🏠 Home', callback_data='home'),
+        InlineKeyboardButton('💁🏻 Help', callback_data='help'),
+        InlineKeyboardButton('🚫 Close', callback_data='close')
         ]]
     )
 @StreamBot.on_callback_query()
