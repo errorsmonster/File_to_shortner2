@@ -55,20 +55,19 @@ START_BUTTONS = InlineKeyboardMarkup(
     )
 HELP_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('Hᴏᴍᴇ', callback_data='home'),
-        InlineKeyboardButton('Aʙᴏᴜᴛ', callback_data='about'),
+        [
+        InlineKeyboardButton('👨🏻‍✈️ Devloper', user_id=OWNER_ID)
+        ], 
         [
         InlineKeyboardButton('🤖 Bot Channel', url=f"https://t.me/Star_Bots_Tamil"),
-        ],       
-        InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close')
+        InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')        
+        ],        
+        InlineKeyboardButton('About 😁', callback_data='about'),
+        InlineKeyboardButton('🏠 Home', callback_data='home')
         ]]
     )
 ABOUT_BUTTONS = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('Hᴏᴍᴇ', callback_data='home'),
-        InlineKeyboardButton('Hᴇʟᴘ', callback_data='help'),
-        InlineKeyboardButton('Cʟᴏsᴇ', callback_data='close')
-        ]]
+
     )
 
 @StreamBot.on_callback_query()
