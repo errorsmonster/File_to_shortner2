@@ -89,6 +89,7 @@ async def private_receive_handler(c: Client, m: Message):
         file_caption = m.caption
         stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         watch_link = "https://{}:{}/Watch/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
+        short_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, file_hash, log_msg.id)
         shorten_urls = await short(stream_link)
 
         msg_text ="""
@@ -98,13 +99,14 @@ async def private_receive_handler(c: Client, m: Message):
 🔠 File Captain :- {}\n
 📥 Download Link :- {}\n
 🖥 Watch Link :- {}\n
-{shorten_urls}\n
+🔗 Shortened Link :- {}\n
+{}\n
 ❗ Note :- This Link is Permanent and Won't Gets Expired 🚫\n
 ©️ <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></b>"""
 
         await log_msg.reply_text(text=f"<b>Request By :- <a href='tg://user?id={m.from_user.id}'>{m.from_user.first_name}</a>\nID :- <code>{m.from_user.id}</code>\n📥 Download Link :- {stream_link}", disable_web_page_preview=True, parse_mode=ParseMode.HTML, quote=True)
         await m.reply_text(
-            text=msg_text.format(file_name, file_size, file_caption, stream_link, watch_link, shorten_urls),
+            text=msg_text.format(file_name, file_size, file_caption, stream_link, watch_link, short_link, shorten_urls),
             parse_mode=ParseMode.HTML, 
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Download Link", url=stream_link)], [InlineKeyboardButton("🖥 Watch Link", url=watch_link)], [InlineKeyboardButton("🔗 Shortened Link", url=shorten_urls)], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/Star_Bots_Tamil")]]),
