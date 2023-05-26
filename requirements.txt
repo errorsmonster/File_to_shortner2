@@ -6,3 +6,4 @@ aiofiles
 motor
 dnspython
 pyshorteners
+Flask==0.11.1
