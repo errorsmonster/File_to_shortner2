@@ -25,14 +25,29 @@ from pyrogram.errors import FloodWait, UserNotParticipant
 from pyshorteners import Shortener
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
-def get_shortlink(url):
-   shortlink = False 
-   try:
-      shortlink = Shortener().dagd.short(url)
-   except Exception as err:
-       print(err)
-       pass
-   return shortlink
+async def get_shortlink(link):
+    https = link.split(":")[0]
+    if "http" == https:
+        https = "https"
+        link = link.replace("http", https)
+    url = f'https://tnshort.net/api'
+    params = {'api': Var.API,
+              'url': link,
+              }
+
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url, params=params, raise_for_status=True, ssl=False) as response:
+                data = await response.json()
+                if data["status"] == "success":
+                    return data['shortenedUrl']
+                else:
+                    logger.error(f"Error: {data['message']}")
+                    return f'https://tnshort.net/api?api={Var.API}&link={link}'
+
+    except Exception as e:
+        logger.error(e)
+        return f'tnshort.net/api?api={Var.API}&link={link}'
 
 def get_media_file_name(m):
     media = m.video or m.document or m.audio
@@ -101,7 +116,7 @@ async def private_receive_handler(c: Client, m: Message):
         stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         
         shortened_online_link = get_shortlink(online_link)
-        shortened_link = f"https://tnshort.net/st?api={Var.API}&url={non_shortened_link}"
+        shortened_link = await get_shortlink(stream_link)
         
 
         msg_text ="""
