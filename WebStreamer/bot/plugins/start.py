@@ -4,6 +4,7 @@ import urllib.parse
 from WebStreamer.bot import StreamBot
 from WebStreamer.vars import Var
 from WebStreamer.utils.human_readable import humanbytes
+from WebStreamer.bot.plugins.stream import get_shortlink
 from WebStreamer.utils.database import Database
 from WebStreamer.utils import get_hash, get_name
 from pyrogram import filters, enums
@@ -194,29 +195,26 @@ async def start(b, m):
 
         get_msg = await b.get_messages(chat_id=Var.BIN_CHANNEL, message_ids=int(usr_cmd))
         file_hash = get_hash(log_msg, Var.HASH_LENGTH)
+        stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         file_name = get_media_file_name(get_msg)
         file_size = humanbytes(get_media_file_size(get_msg))
         file_caption = m.caption
-        stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
-        watch_link = "https://{}:{}/Watch/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
-        short_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, file_hash, log_msg.id)
+        shortened_link = await get_shortlink(stream_link)
         
         msg_text ="""
 <b><i>Your Link is Generated... ⚡</i>\n
 📁 File Name :- {}\n
 📦 File Size :- {}\n
 🔠 File Captain :- {}\n
-📥 Download Link :- {}\n
-🖥 Watch Link :- {}\n
-🔗 Shortened Link :- {}\n
+📥 Fast Download Link :- {}\n
 ❗ Note :- This Link is Permanent and Won't Gets Expired 🚫\n
 ©️ <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></b>"""
 
 
         await m.reply_text(
-            text=msg_text.format(file_name, file_size, file_caption, stream_link, watch_link, short_link),
+            text=msg_text.format(file_name, file_size, file_caption, shortened_link),
             parse_mode=ParseMode.HTML, quote=True,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Download Link", url=stream_link)], [InlineKeyboardButton("🖥 Watch Link", url=watch_link)], [InlineKeyboardButton("🔗 Shortened Link", url=short_link)], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/Star_Bots_Tamil")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Fast Download Link", url=shortened_link)], [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/Star_Moviess_Tamil")], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/Star_Bots_Tamil")]])
         )
 
 
