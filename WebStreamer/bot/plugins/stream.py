@@ -142,7 +142,8 @@ async def channel_receive_handler(bot, broadcast):
         return
     try:
         log_msg = await broadcast.forward(chat_id=Var.BIN_CHANNEL)
-        stream_link = "https://{}:{}/{}".format(Var.FQDN, Var.PORT, log_msg.id)
+        stream_link = "https://{}:{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
+        shortened_link = await get_shortlink(stream_link)
 
         await log_msg.reply_text(
             text=f"<b>Channel Name :- <code>{broadcast.chat.title}</code>\nChannel ID :- <code>{broadcast.chat.id}</code>\nRequest URL :- https://t.me/{(await bot.get_me()).username}?start=Star_Bots_Tamil_{str(log_msg.message_id)}</b>",
@@ -154,7 +155,7 @@ async def channel_receive_handler(bot, broadcast):
             chat_id=broadcast.chat.id,
             message_id=broadcast.message_id,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("📥 Download Link", url=f"https://t.me/{(await bot.get_me()).username}?start=Star_Bots_Tamil_{str(log_msg.message_id)}")]])
+                [[InlineKeyboardButton("📥 Download Link", url=f"https://t.me/{(await bot.get_me()).username}?start=Star_Bots_Tamil_{str(log_msg.id)}")]])
             # [[InlineKeyboardButton("Dᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ 📥", url=f"https://t.me/direct_link_generator_658_bot?start=Moksh_b658_{str(log_msg.message_id)}")]])
         )
     except FloodWait as w:
