@@ -16,6 +16,7 @@ class Var(object):
     BOT_TOKEN = str(environ.get("BOT_TOKEN"))
     SESSION_NAME = str(getenv('SESSION_NAME', 'Star_Bots_Tamil'))    
     OWNER_ID = int(getenv("OWNER_ID", "1391556668"))
+    API = str(getenv('API', 'd03a53149bf186ac74d58ff80d916f7a79ae5745'))
     SLEEP_THRESHOLD = int(environ.get("SLEEP_THRESHOLD", "60"))  # 1 minte
     WORKERS = int(environ.get("WORKERS", "6"))  # 6 workers = 6 commands at once
     BIN_CHANNEL = int(
