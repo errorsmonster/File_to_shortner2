@@ -100,9 +100,9 @@ async def private_receive_handler(c: Client, m: Message):
         file_caption = m.caption
         stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         watch_link = "https://{}:{}/Watch/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
-        short_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, file_hash, log_msg.id)
+        
         shortened_link = f"https://tnshort.net/st?api={Var.API}&url={non_shortened_link}"
-        shortened_online_link = get_shortlink(online_link)
+        
 
         msg_text ="""
 <b><i>Your Link is Generated... ⚡</i>\n
@@ -112,14 +112,12 @@ async def private_receive_handler(c: Client, m: Message):
 📥 Download Link :- {}\n
 🖥 Watch Link :- {}\n
 🔗 Shortened Link :- {}\n
-🔗 URL Shortened Link :- {}\n
-🔗 URL Shortened Link 2 :- {}\n
 ❗ Note :- This Link is Permanent and Won't Gets Expired 🚫\n
 ©️ <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></b>"""
 
         await log_msg.reply_text(text=f"<b>Request By :- <a href='tg://user?id={m.from_user.id}'>{m.from_user.first_name}</a>\nID :- <code>{m.from_user.id}</code>\n📥 Download Link :- {stream_link}</b>", disable_web_page_preview=True, parse_mode=ParseMode.HTML, quote=True)
         await m.reply_text(
-            text=msg_text.format(file_name, file_size, file_caption, stream_link, watch_link, short_link),
+            text=msg_text.format(file_name, file_size, file_caption, stream_link, watch_link, shortened_link),
             parse_mode=ParseMode.HTML, 
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Download Link", url=stream_link)], [InlineKeyboardButton("🖥 Watch Link", url=watch_link)], [InlineKeyboardButton("🔗 Shortened Link", url=short_link)], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/Star_Bots_Tamil")]]),
