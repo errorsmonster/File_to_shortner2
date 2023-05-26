@@ -195,10 +195,9 @@ async def start(b, m):
                 return
 
         get_msg = await b.get_messages(chat_id=Var.BIN_CHANNEL, message_ids=int(usr_cmd))
-        #caption = m.caption
         file_name = get_media_file_name(get_msg)
         stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, get_msg.id, file_name)
-        file_name = get_media_file_name(get_msg)
+        file_name = get_name(get_msg)
         file_size = humanbytes(get_media_file_size(get_msg))
         file_caption = get_msg.caption
         shortened_link = await get_shortlink(stream_link)
