@@ -203,7 +203,7 @@ async def start(b, m):
         shortened_link = await get_shortlink(stream_link)
         
         msg_text ="""
-<b><i>Your Link is Generated... ⚡</i>\n
+<b>Your Link is Generated... ⚡\n
 📁 File Name :- {}\n
 📦 File Size :- {}\n
 🔠 File Captain :- {}\n
