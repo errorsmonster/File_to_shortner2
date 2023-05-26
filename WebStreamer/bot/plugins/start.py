@@ -3,6 +3,7 @@ import aiohttp
 import urllib.parse
 from WebStreamer.bot import StreamBot
 from WebStreamer.vars import Var
+from urllib.parse import quote_plus
 from WebStreamer.utils.human_readable import humanbytes
 from WebStreamer.bot.plugins.stream import get_shortlink
 from WebStreamer.utils.database import Database
