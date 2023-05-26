@@ -33,7 +33,7 @@ class Var(object):
     APP_NAME = None
     if 'DYNO' in environ:
         ON_HEROKU = True
-        APP_NAME = str(getenv('APP_NAME'))
+        APP_NAME = str(getenv('APP_NAME', "file-to-link-star-bots"))
     else:
         ON_HEROKU = False
     FQDN = str(getenv('FQDN', BIND_ADRESS)) if not ON_HEROKU or getenv('FQDN') else APP_NAME+'.herokuapp.com'
