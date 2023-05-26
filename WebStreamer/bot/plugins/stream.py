@@ -25,14 +25,14 @@ from pyrogram.errors import FloodWait, UserNotParticipant
 from pyshorteners import Shortener
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
-def get_shortlink(url):
-   shortlink = False 
-   try:
-      shortlink = Shortener().tnshortnet.short(url)
-   except Exception as err:
-       print(err)
-       pass
-   return shortlink
+async def get_shortlink(link):
+    url = 'https://tnshort.net/api'
+    params = {'api': "d03a53149bf186ac74d58ff80d916f7a79ae5745", 'url': link}
+
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url, params=params, raise_for_status=True, ssl=False) as response:
+            data = await response.json()
+            return data["shortenedUrl"]
 
 def get_media_file_name(m):
     media = m.video or m.document or m.audio
@@ -100,8 +100,8 @@ async def private_receive_handler(c: Client, m: Message):
         file_caption = m.caption
         stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         
-        shortened_online_link = get_shortlink(online_link)
-        shortened_link = get_shortlink(stream_link)
+        shortened_online_link = await get_shortlink(online_link)
+        shortened_link = await get_shortlink(stream_link)
         
 
         msg_text ="""
