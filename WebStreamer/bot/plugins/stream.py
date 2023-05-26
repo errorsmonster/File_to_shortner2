@@ -101,7 +101,7 @@ async def private_receive_handler(c: Client, m: Message):
         shortened_watch_link = await get_shortlink(watch_link)
 
         msg_text ="""
-<b><i>Your Link is Generated... ⚡</i>\n
+<b>Your Link is Generated... ⚡\n
 📁 File Name :- {}\n
 📦 File Size :- {}\n
 🔠 File Captain :- {}\n
