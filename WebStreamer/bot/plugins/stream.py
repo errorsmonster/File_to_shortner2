@@ -99,8 +99,8 @@ async def private_receive_handler(c: Client, m: Message):
         file_size = humanbytes(get_media_file_size(m))
         file_caption = m.caption
         stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
-        watch_link = "https://{}:{}/Watch/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         
+        shortened_online_link = get_shortlink(online_link)
         shortened_link = f"https://tnshort.net/st?api={Var.API}&url={non_shortened_link}"
         
 
