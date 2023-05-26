@@ -92,35 +92,31 @@ async def private_receive_handler(c: Client, m: Message):
             return
     try:
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
-        non_shortened_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}"
-        online_link = f"https://tnshort.net/st?api={Var.API}&url={Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}"
+        stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
+        watch_link = "https://{}:{}/Watch/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         file_hash = get_hash(log_msg, Var.HASH_LENGTH)
         file_name = get_media_file_name(m)
         file_size = humanbytes(get_media_file_size(m))
         file_caption = m.caption
-        stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
-        
-        shortened_online_link = await get_shortlink(online_link)
-        shortened_link = await get_shortlink(stream_link)
-        
+        shortened_stream_link = await get_shortlink(stream_link)
+        shortened_watch_link = await get_shortlink(watch_link)
 
         msg_text ="""
 <b><i>Your Link is Generated... ⚡</i>\n
 📁 File Name :- {}\n
 📦 File Size :- {}\n
 🔠 File Captain :- {}\n
-📥 Download Link :- {}\n
+📥 Fast Download Link :- {}\n
 🖥 Watch Link :- {}\n
-🔗 Shortened Link :- {}\n
 ❗ Note :- This Link is Permanent and Won't Gets Expired 🚫\n
 ©️ <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></b>"""
 
         await log_msg.reply_text(text=f"<b>Request By :- <a href='tg://user?id={m.from_user.id}'>{m.from_user.first_name}</a>\nID :- <code>{m.from_user.id}</code>\n📥 Download Link :- {stream_link}</b>", disable_web_page_preview=True, parse_mode=ParseMode.HTML, quote=True)
         await m.reply_text(
-            text=msg_text.format(file_name, file_size, file_caption, stream_link, shortened_online_link, shortened_link),
+            text=msg_text.format(file_name, file_size, file_caption, shortened_stream_link, shortened_watch_link),
             parse_mode=ParseMode.HTML, 
             disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Download Link", url=stream_link)], [InlineKeyboardButton("🖥 Watch Link", url=stream_link)], [InlineKeyboardButton("🔗 Shortened Link", url=stream_link)], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/Star_Bots_Tamil")]]),
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Fast Download Link", url=shortened_stream_link)], [InlineKeyboardButton("🖥 Watch Link", url=shortened_watch_link)], [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/Star_Moviess_Tamil")], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/Star_Bots_Tamil")]]),
             quote=True
         )
     except FloodWait as e:
