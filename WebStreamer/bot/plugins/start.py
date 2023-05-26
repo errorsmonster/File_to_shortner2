@@ -199,7 +199,7 @@ async def start(b, m):
         stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, get_msg.id, file_name)
         file_name = get_media_file_name(get_msg)
         file_size = humanbytes(get_media_file_size(get_msg))
-        file_caption = m.caption(get_msg)
+        file_caption = caption(get_msg)
         shortened_link = await get_shortlink(stream_link)
         
         msg_text ="""
