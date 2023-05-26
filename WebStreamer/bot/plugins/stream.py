@@ -147,17 +147,17 @@ async def channel_receive_handler(bot, broadcast):
         shortened_link = await get_shortlink(stream_link)
 
         await log_msg.reply_text(
-            text=f"<b>Channel Name :- <code>{broadcast.chat.title}</code>\nChannel ID :- <code>{broadcast.chat.id}</code>\nRequest URL :- https://t.me/{(await bot.get_me()).username}?start=Star_Bots_Tamil_{str(log_msg.message_id)}</b>",
-            # text=f"**Cʜᴀɴɴᴇʟ Nᴀᴍᴇ:** `{broadcast.chat.title}`\n**Cʜᴀɴɴᴇʟ ID:** `{broadcast.chat.id}`\n**Rᴇǫᴜᴇsᴛ ᴜʀʟ:** https://t.me/FxStreamBot?start=Moksh_b658_{str(log_msg.message_id)}",
+            text=f"<b>Channel Name :- <code>{broadcast.chat.title}</code>\nChannel ID :- <code>{broadcast.chat.id}</code>\nRequest URL :- https://t.me/{(await bot.get_me()).username}?start=Star_Bots_Tamil_{str(log_msg.id)}</b>",
+            # text=f"**Cʜᴀɴɴᴇʟ Nᴀᴍᴇ:** `{broadcast.chat.title}`\n**Cʜᴀɴɴᴇʟ ID:** `{broadcast.chat.id}`\n**Rᴇǫᴜᴇsᴛ ᴜʀʟ:** https://t.me/FxStreamBot?start=Moksh_b658_{str(log_msg.id)}",
             quote=True,
             parse_mode=ParseMode.HTML
         )
         await bot.edit_message_reply_markup(
             chat_id=broadcast.chat.id,
-            message_id=broadcast.message_id,
+            message_id=broadcast.id,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton("📥 Fast Download Link", url=f"https://t.me/{(await bot.get_me()).username}?start=Star_Bots_Tamil_{str(log_msg.id)}")]])
-            # [[InlineKeyboardButton("Dᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ 📥", url=f"https://t.me/direct_link_generator_658_bot?start=Moksh_b658_{str(log_msg.message_id)}")]])
+            # [[InlineKeyboardButton("Dᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ 📥", url=f"https://t.me/direct_link_generator_658_bot?start=Moksh_b658_{str(log_msg.id)}")]])
         )
     except FloodWait as w:
         print(f"Sleeping for {str(w.x)}s")
