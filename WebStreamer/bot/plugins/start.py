@@ -195,7 +195,7 @@ async def start(b, m):
                 return
 
         get_msg = await b.get_messages(chat_id=Var.BIN_CHANNEL, message_ids=int(usr_cmd))
-        file_name = quote_plus(get_name(m))
+        file_name = get_media_file_name(get_msg)
         stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, get_msg.id, file_name)
         file_name = get_media_file_name(get_msg)
         file_size = humanbytes(get_media_file_size(get_msg))
