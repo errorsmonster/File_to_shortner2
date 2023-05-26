@@ -27,13 +27,18 @@ class Var(object):
     PING_INTERVAL = int(environ.get("PING_INTERVAL", "1200"))  # 20 minutes
     HAS_SSL = str(environ.get("HAS_SSL", "0").lower()) in ("1", "true", "t", "yes", "y")
     NO_PORT = str(environ.get("NO_PORT", "0").lower()) in ("1", "true", "t", "yes", "y")
-    HASH_LENGTH = int(environ.get("HASH_LENGTH", 6))
+    HASH_LENGTH = int(environ.get("HASH_LENGTH", 7))
     if not 5 < HASH_LENGTH < 64:
         sys.exit("Hash length should be greater than 5 and less than 64")
-    FQDN = str(environ.get("FQDN", BIND_ADDRESS))
-    URL = "https://{}{}/".format(
-            FQDN, "" if NO_PORT else ":" + str(PORT)
-        )
+    APP_NAME = None
+    if 'DYNO' in environ:
+        ON_HEROKU = True
+        APP_NAME = str(getenv('APP_NAME'))
+    else:
+        ON_HEROKU = False
+    FQDN = str(getenv('FQDN', BIND_ADRESS)) if not ON_HEROKU or getenv('FQDN') else APP_NAME+'.herokuapp.com'
+    URL = "https://{}/".format(FQDN) if ON_HEROKU or NO_PORT else \
+        "http://{}:{}/".format(FQDN, PORT)
     KEEP_ALIVE = str(environ.get("KEEP_ALIVE", "0").lower()) in  ("1", "true", "t", "yes", "y")
     DEBUG = str(environ.get("DEBUG", "0").lower()) in ("1", "true", "t", "yes", "y")
     USE_SESSION_FILE = str(environ.get("USE_SESSION_FILE", "0").lower()) in ("1", "true", "t", "yes", "y")
