@@ -92,8 +92,8 @@ async def private_receive_handler(c: Client, m: Message):
             return
     try:
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
-        non_shortened_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
-        online_link = f"https://tnshort.net/st?api={Var.API}&url={Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+        non_shortened_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}"
+        online_link = f"https://tnshort.net/st?api={Var.API}&url={Var.URL}{str(log_msg.id)}/{quote_plus(get_name(log_msg))}"
         file_hash = get_hash(log_msg, Var.HASH_LENGTH)
         file_name = get_media_file_name(m)
         file_size = humanbytes(get_media_file_size(m))
