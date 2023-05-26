@@ -116,7 +116,7 @@ async def private_receive_handler(c: Client, m: Message):
         stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         
         shortened_online_link = get_shortlink(online_link)
-        shortened_link = await get_shortlink(stream_link)
+        shortened_link = get_shortlink(stream_link)
         
 
         msg_text ="""
