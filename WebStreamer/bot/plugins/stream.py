@@ -156,7 +156,7 @@ async def channel_receive_handler(bot, broadcast):
             chat_id=broadcast.chat.id,
             message_id=broadcast.message_id,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("📥 Download Link", url=f"https://t.me/{(await bot.get_me()).username}?start=Star_Bots_Tamil_{str(log_msg.id)}")]])
+                [[InlineKeyboardButton("📥 Fast Download Link", url=f"https://t.me/{(await bot.get_me()).username}?start=Star_Bots_Tamil_{str(log_msg.id)}")]])
             # [[InlineKeyboardButton("Dᴏᴡɴʟᴏᴀᴅ ʟɪɴᴋ 📥", url=f"https://t.me/direct_link_generator_658_bot?start=Moksh_b658_{str(log_msg.message_id)}")]])
         )
     except FloodWait as w:
