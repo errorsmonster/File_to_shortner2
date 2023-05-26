@@ -22,8 +22,17 @@ from pyrogram.enums.parse_mode import ParseMode
 from WebStreamer.utils.human_readable import humanbytes
 from WebStreamer.utils.file_properties import get_name, get_media_file_size
 from pyrogram.errors import FloodWait, UserNotParticipant
+from pyshorteners import Shortener
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
+def get_shortlink(url):
+   shortlink = False 
+   try:
+      shortlink = Shortener().dagd.short(url)
+   except Exception as err:
+       print(err)
+       pass
+   return shortlink
 
 def get_media_file_name(m):
     media = m.video or m.document or m.audio
@@ -83,6 +92,8 @@ async def private_receive_handler(c: Client, m: Message):
             return
     try:
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
+        non_shortened_link = f"{Var.URL}watch/{str(log_msg.message_id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+        online_link = f"https://tnshort.net/st?api={Var.API}&url={Var.URL}{str(log_msg.message_id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
         file_hash = get_hash(log_msg, Var.HASH_LENGTH)
         file_name = get_media_file_name(m)
         file_size = humanbytes(get_media_file_size(m))
@@ -90,7 +101,8 @@ async def private_receive_handler(c: Client, m: Message):
         stream_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         watch_link = "https://{}:{}/Watch/{}/{}".format(Var.FQDN, Var.PORT, log_msg.id, file_name)
         short_link = "https://{}:{}/{}/{}".format(Var.FQDN, Var.PORT, file_hash, log_msg.id)
-        
+        shortened_link = f"https://tnshort.net/st?api={Var.API}&url={stream_link}"
+        shortened_online_link = get_shortlink(online_link)
 
         msg_text ="""
 <b><i>Your Link is Generated... ⚡</i>\n
@@ -100,6 +112,8 @@ async def private_receive_handler(c: Client, m: Message):
 📥 Download Link :- {}\n
 🖥 Watch Link :- {}\n
 🔗 Shortened Link :- {}\n
+🔗 URL Shortened Link :- {}\n
+🔗 URL Shortened Link 2 :- {}\n
 ❗ Note :- This Link is Permanent and Won't Gets Expired 🚫\n
 ©️ <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></b>"""
 
