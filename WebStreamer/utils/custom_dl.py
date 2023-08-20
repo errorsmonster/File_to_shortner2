@@ -5,13 +5,26 @@ from WebStreamer import Var
 from typing import Dict, Union
 from WebStreamer.bot import work_loads
 from pyrogram import Client, utils, raw
-from WebStreamer.utils.file_properties import get_file_ids
+#from WebStreamer.utils.file_properties import get_file_ids
 from pyrogram.session import Session, Auth
 from pyrogram.errors import AuthBytesInvalid
 from WebStreamer.server.exceptions import FIleNotFound
 from pyrogram.file_id import FileId, FileType, ThumbnailSource
 
 logger = logging.getLogger("streamer")
+
+async def get_file_ids(client: Client, chat_id: int, message_id: int) -> Optional[FileId]:
+    message = await client.get_messages(chat_id, message_id)
+    if message.empty:
+        raise FIleNotFound
+    media = get_media_from_message(message)
+    file_unique_id = await parse_file_unique_id(message)
+    file_id = await parse_file_id(message)
+    setattr(file_id, "file_size", getattr(media, "file_size", 0))
+    setattr(file_id, "mime_type", getattr(media, "mime_type", ""))
+    setattr(file_id, "file_name", getattr(media, "file_name", ""))
+    setattr(file_id, "unique_id", file_unique_id)
+    return file_id
 
 class ByteStreamer:
     def __init__(self, client: Client):
