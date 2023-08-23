@@ -58,7 +58,7 @@ async def private_receive_handler(c: Client, m: Message):
         await db.add_user(m.from_user.id)
         await c.send_message(
             Var.LOG_CHANNEL,
-            f"<b>#New_User\n\n᚛›Name :- <a href='tg://user?id={m.from_user.id}'>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot><b>File to Link Star Bots</b></a></b>"
+            f"<b>#New_User\n\n᚛›Name :- <a href='tg://user?id={m.from_user.id}'>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/Rename_4GB_bot><b>File to Link Bots</b></a></b>"
         )
     if Var.UPDATES_CHANNEL != "None":
         try:
@@ -66,7 +66,7 @@ async def private_receive_handler(c: Client, m: Message):
             if user.status == "kicked":
                 await c.send_message(
                     chat_id=m.chat.id,
-                    text="<b>Sorry <a href='tg://user?id={m.from_user.id}>{m..first_name}</a>,\nYou're Banned 🚫 To Use Me❓.\n\n Contact Developer <a href='https://t.me/Star_Bots_Tamil_Support'>Star Bots Tamil Support</a> They will Help You.</b>",
+                    text="<b>Sorry <a href='tg://user?id={m.from_user.id}>{m..first_name}</a>,\nYou're Banned 🚫 To Use Me❓.\n\n Contact Developer <a href='https://t.me/J_shree_ram'>ɴᴏᴛʜɪɴɢ ʙʀᴏ</a> They will Help You.</b>",
                     parse_mode=ParseMode.HTML,
                     disable_web_page_preview=True
                 )
@@ -84,7 +84,7 @@ async def private_receive_handler(c: Client, m: Message):
         except Exception:
             await c.send_message(
                 chat_id=m.chat.id,
-                text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/Star_Bots_Tamil_Support><b>Star Bots Tamil Support</b></a></b>",
+                text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/J_shree_ram><b>ɴᴏᴛʜɪɴɢ ʙʀᴏ</b></a></b>",
                 parse_mode=ParseMode.HTML,
                 disable_web_page_preview=True)
             return
@@ -119,14 +119,14 @@ async def private_receive_handler(c: Client, m: Message):
 📥 Fast Download Link :- {}\n
 🖥 Watch Link :- {}\n
 ❗ Note :- This Link is Permanent and Won't Gets Expired 🚫\n
-©️ <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></b>"""
+©️ <a href=https://t.me/bot_channel_011><b></b>ɴᴏᴛʜɪɴɢ ʙʀᴏ</a></b></b>"""
 
         await log_msg.reply_text(text=f"<b>Request By :- <a href='tg://user?id={m.from_user.id}'>{m.from_user.first_name}</a>\nID :- <code>{m.from_user.id}</code>\n📥 Download Link :- {stream_link}</b>", disable_web_page_preview=True, parse_mode=ParseMode.HTML, quote=True)
         await m.reply_text(
             text=msg_text.format(file_name, file_size, file_caption, shortened_stream_link, shortened_watch_link),
             parse_mode=ParseMode.HTML, 
             disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Fast Download Link", url=shortened_stream_link)], [InlineKeyboardButton("🖥 Watch Link", url=shortened_watch_link)], [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/Star_Moviess_Tamil")], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/Star_Bots_Tamil")]]),
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Fast Download Link", url=shortened_stream_link)], [InlineKeyboardButton("🖥 Watch Link", url=shortened_watch_link)], [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/i_Movieee")], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/bot_channel_011")]]),
             quote=True
         )
     except FloodWait as e:
@@ -159,7 +159,7 @@ async def channel_receive_handler(bot, broadcast):
         shortened_link = await get_shortlink(stream_link)
 
         await log_msg.reply_text(
-            text=f"<b>Channel Name :- {broadcast.chat.title}\nChannel ID :- <code>{broadcast.chat.id}</code>\nRequest URL :- https://t.me/{(await bot.get_me()).username}?start=Star_Bots_Tamil_{str(log_msg.id)}</b>",
+            text=f"<b>Channel Name :- {broadcast.chat.title}\nChannel ID :- <code>{broadcast.chat.id}</code>\nRequest URL :- https://t.me/{(await bot.get_me()).username}?start=Rename_4GB_bot{str(log_msg.id)}</b>",
             quote=True,
             parse_mode=ParseMode.HTML
         )
@@ -167,7 +167,7 @@ async def channel_receive_handler(bot, broadcast):
             chat_id=broadcast.chat.id,
             message_id=broadcast.id,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton("📥 Fast Download Link", url=f"https://t.me/{(await bot.get_me()).username}?start=Star_Bots_Tamil_{str(log_msg.id)}")]])
+                [[InlineKeyboardButton("📥 Fast Download Link", url=f"https://t.me/{(await bot.get_me()).username}?start=Rename_4GB_bot{str(log_msg.id)}")]])
         )
     except FloodWait as w:
         print(f"Sleeping for {str(w.x)}s")
