@@ -22,7 +22,7 @@ db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
 START_TEXT = """
 <b><i>Hello 👋🏻</i> {},\n
-I'm Star Bots Tamil's Official File to Link Bot (Link Generator Bot). Maintained By :- <a href='https://t.me/Star_Bots_Tamil'>Star Bots Tamil</a>.\n
+I'm File to Link Bot (Link Generator Bot). Maintained By :- <a href='https://t.me/J_shree_ram'>ɴᴏᴛʜɪɴɢ ʙʀᴏ</a>.\n
 Click on /help to Get More Information.\n
 Warning 🚸\n
 🔞 Porn Contents Leads to Permanent Ban You. Check "About 😁"</b>"""
@@ -38,18 +38,18 @@ Available Commands\n
 ● /help - How to Use❓
 ● /about - to Know About Me 😌
 ● /short - Use This Command with Bot Generated Link 🔗 to Get Shorted Links 🔗
-Example :- <code>/short https://t.me/Star_Bots_Tamil</code>\n
+Example :- <code>/short https://t.me/J_shree_ram</code>\n
 Warning ⚠️\n
 🔞 Porn Contents Leads to Permanent Ban You.</b>"""
 
 ABOUT_TEXT = """
-<b><i>🤖 My Name :- <a href=https://t.me/File_to_Link_Star_Bot><b>File to Link Star Bots</b></a>\n
-🧑🏻‍💻 Developer :- <a href=https://t.me/TG_Karthik><b>Karthik</b></a>\n
+<b><i>🤖 My Name :- <a href=https://t.me/File_to_Link_Bot><b>File to Link Bots</b></a>\n
+🧑🏻‍💻 Developer :- <a href=https://t.me/J_shree_ram><b>ɴᴏᴛʜɪɴɢ ʙʀᴏ</b></a>\n
 📝 Language :- Python3\n
 📚 Framework :- Pyrogram\n
 📡 Hosted on :- VPS\n
-🎥 Movie Updates :- <a href=https://t.me/Star_Moviess_Tamil><b></b>Star Movies Tamil</a>\n
-🤖 Bot Channel :- <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></i>"""
+🎥 Movie Updates :- <a href=https://t.me/i_Movieee><b></b>I Movies</a>\n
+🤖 Bot Channel :- <a href=https://t.me/bot_channel_011><b></b>Nothing Bots Channel</a></b></i>"""
 
 START_BUTTONS = InlineKeyboardMarkup(
         [[
@@ -117,7 +117,7 @@ async def start(b, m):
         await db.add_user(m.from_user.id)
         await b.send_message(
             Var.LOG_CHANNEL,
-            f"<b>#New_User\n\n᚛›Name :- <a href=tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot>File to Link Star Bots</a></b>", parse_mode=ParseMode.HTML
+            f"<b>#New_User\n\n᚛›Name :- <a href=tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/Rename_4GB_bot>File to Link Bots</a></b>", parse_mode=ParseMode.HTML
         )
     usr_cmd = m.text.split("_")[-1]
     if usr_cmd == "/start":
@@ -127,7 +127,7 @@ async def start(b, m):
                 if user.status == "kicked":
                     await b.send_message(
                         chat_id=m.chat.id,
-                        text="<b>Sorry <a href='tg://user?id={m.from_user.id}>{m..first_name}</a>,\nYou're Banned 🚫 To Use Me❓.\n\n Contact Developer <a href='https://t.me/Star_Bots_Tamil_Support'>Star Bots Tamil Support</a> They will Help You.</b>",
+                        text="<b>Sorry <a href='tg://user?id={m.from_user.id}>{m..first_name}</a>,\nYou're Banned 🚫 To Use Me❓.\n\n Contact Developer <a href='https://t.me/J_shree_ram'>ɴᴏᴛʜɪɴɢ ʙʀᴏ</a> They will Help You.</b>",
                         parse_mode=ParseMode.HTML,
                         disable_web_page_preview=True    
                     )
@@ -147,7 +147,7 @@ async def start(b, m):
             except Exception:
                 await b.send_message(
                     chat_id=m.chat.id,
-                    text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/Star_Bots_Tamil_Support><b>Star Bots Tamil Support</b></a></b>",
+                    text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/J_shree_ram><b>ɴᴏᴛʜɪɴɢ ʙʀᴏ</b></a></b>",
                     parse_mode=ParseMode.HTML,
                     disable_web_page_preview=True)
                 return
@@ -167,7 +167,7 @@ async def start(b, m):
                 if user.status == "kicked":
                     await b.send_message(
                         chat_id=m.chat.id,
-                        text="<b>Sorry <a href='tg://user?id={m.from_user.id}>{m..first_name}</a>,\nYou're Banned 🚫 To Use Me❓.\n\n Contact Developer <a href='https://t.me/Star_Bots_Tamil_Support'>Star Bots Tamil Support</a> They will Help You.</b>",
+                        text="<b>Sorry <a href='tg://user?id={m.from_user.id}>{m..first_name}</a>,\nYou're Banned 🚫 To Use Me❓.\n\n Contact Developer <a href='https://t.me/J_shree_ram'>ɴᴏᴛʜɪɴɢ ʙʀᴏ</a> They will Help You.</b>",
                         parse_mode=ParseMode.HTML,
                         disable_web_page_preview=True
                     )
@@ -179,7 +179,7 @@ async def start(b, m):
                     reply_markup=InlineKeyboardMarkup(
                         [[
                           InlineKeyboardButton("🤖 Join Our Bot Channel", url=f"https://t.me/{Var.UPDATES_CHANNEL}")],
-                         [InlineKeyboardButton("🔄 Refresh / Try Again", url=f"https://t.me/{(await b.get_me()).username}?start=Star_Bots_Tamil_{usr_cmd}")
+                         [InlineKeyboardButton("🔄 Refresh / Try Again", url=f"https://t.me/{(await b.get_me()).username}?start=Rename_4GB_bot{usr_cmd}")
                         
                         ]]
                     ),
@@ -189,7 +189,7 @@ async def start(b, m):
             except Exception:
                 await b.send_message(
                     chat_id=m.chat.id,
-                    text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/Star_Bots_Tamil_Support><b>Star Bots Tamil Support</b></a></b>",
+                    text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/J_shree_ram><b>ɴᴏᴛʜɪɴɢ ʙʀᴏ</b></a></b>",
                     parse_mode=ParseMode.HTML,
                     disable_web_page_preview=True)
                 return
@@ -215,13 +215,13 @@ async def start(b, m):
 🔠 File Captain :- {}\n
 📥 Fast Download Link :- {}\n
 ❗ Note :- This Link is Permanent and Won't Gets Expired 🚫\n
-©️ <a href=https://t.me/Star_Bots_Tamil><b></b>Star Bots Tamil</a></b></b>"""
+©️ <a href=https://t.me/J_shree_ram><b></b>ɴᴏᴛʜɪɴɢ ʙʀᴏ</a></b></b>"""
 
 
         await m.reply_text(
             text=msg_text.format(file_name, file_size, file_caption, shortened_link),
             parse_mode=ParseMode.HTML, quote=True,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Fast Download Link", url=shortened_link)], [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/Star_Moviess_Tamil")], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/Star_Bots_Tamil")]])
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Fast Download Link", url=shortened_link)], [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/i_Movieee")], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/bot_channel_011")]])
         )
 
 
@@ -242,7 +242,7 @@ async def help_handler(bot, message):
         await db.add_user(message.from_user.id)
         await bot.send_message(
             Var.LOG_CHANNEL,
-            f"<b>#New_User\n\n᚛›Name :- <a href='tg://user?id={m.from_user.id}'>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/File_to_Link_Star_Bot><b>File to Link Star Bots</b></a></b>"
+            f"<b>#New_User\n\n᚛›Name :- <a href='tg://user?id={m.from_user.id}'>{m.from_user.first_name}</a>\n᚛› ID :- <code>{m.from_user.id}</code>\n᚛› From Bot :- <a href=https://t.me/Rename_4GB_bot><b>File to Link Bots</b></a></b>"
         )
     if Var.UPDATES_CHANNEL is not None:
         try:
@@ -250,7 +250,7 @@ async def help_handler(bot, message):
             if user.status == "kicked":
                 await bot.send_message(
                     chat_id=message.chat.id,
-                    text="<b>Sorry <a href='tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>,\nYou're Banned 🚫 To Use Me❓.\n\n Contact Developer <a href='https://t.me/Star_Bots_Tamil_Support'>Star Bots Tamil Support</a> They will Help You.</b>",
+                    text="<b>Sorry <a href='tg://user?id={m.from_user.id}>{m.from_user.first_name}</a>,\nYou're Banned 🚫 To Use Me❓.\n\n Contact Developer <a href='https://t.me/J_shree_ram'>ɴᴏᴛʜɪɴɢ ʙʀᴏ</a> They will Help You.</b>",
                     parse_mode=ParseMode.HTML,
                     disable_web_page_preview=True,
                     quote=True
@@ -271,7 +271,7 @@ async def help_handler(bot, message):
         except Exception:
             await bot.send_message(
                 chat_id=message.chat.id,
-                text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/Star_Bots_Tamil_Support><b>Star Bots Tamil Support</b></a></b>",
+                text="<b>Something Wrong❗\nYou're Not Added Admin to Update Channel.\n\n👥 Support :- <a href=https://t.me/J_shree_ram><b>ɴᴏᴛʜɪɴɢ ʙʀᴏ</b></a></b>",
                 parse_mode=ParseMode.HTML,
                 disable_web_page_preview=True,
                 quote=True)
@@ -293,10 +293,10 @@ TNSHORT_API = os.environ.get("TNSHORT_API", "d03a53149bf186ac74d58ff80d916f7a79a
 
 reply_markup = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/Star_Moviess_Tamil')
+        InlineKeyboardButton('🎥 Movie Updates', url='https://t.me/i_Movieee')
         ],
         [
-        InlineKeyboardButton('🤖 Bot Channel', url=f"https://t.me/Star_Bots_Tamil"),
+        InlineKeyboardButton('🤖 Bot Channel', url=f"https://t.me/bot_channel_011"),
         ],
         [
         InlineKeyboardButton('⚡ Request', user_id=OWNER_ID),
