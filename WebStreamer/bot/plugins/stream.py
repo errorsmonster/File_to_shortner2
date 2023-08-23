@@ -24,8 +24,8 @@ from pyshorteners import Shortener
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
 async def get_shortlink(link):
-    url = 'https://tnshort.net/api'
-    params = {'api': "d03a53149bf186ac74d58ff80d916f7a79ae5745", 'url': link}
+    url = 'https://omnifly.in.net/api'
+    params = {'api': "ec011feae18c3dc044fb939ac4c0b7cb4f91c417", 'url': link}
 
     async with aiohttp.ClientSession() as session:
         async with session.get(url, params=params, raise_for_status=True, ssl=False) as response:
