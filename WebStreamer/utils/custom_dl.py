@@ -8,7 +8,7 @@ from pyrogram import Client, utils, raw
 from pyrogram.file_id import FileId
 from WebStreamer.server.exceptions import FIleNotFound
 from typing import Any, Optional, Union
-#from WebStreamer.utils.file_properties import get_file_ids
+from WebStreamer.utils.file_properties import get_file_ids
 from pyrogram.session import Session, Auth
 from pyrogram.errors import AuthBytesInvalid
 from WebStreamer.server.exceptions import FIleNotFound
