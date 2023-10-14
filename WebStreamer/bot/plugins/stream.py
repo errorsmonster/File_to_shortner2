@@ -24,8 +24,8 @@ from pyshorteners import Shortener
 db = Database(Var.DATABASE_URL, Var.SESSION_NAME)
 
 async def get_shortlink(link):
-    url = 'https://omnifly.in.net/api'
-    params = {'api': "ec011feae18c3dc044fb939ac4c0b7cb4f91c417", 'url': link}
+    url = 'https://Mdiskshortner.link/api'
+    params = {'api': "3c97e65494f41f4094645109f6cf10e61488d555", 'url': link}
 
     async with aiohttp.ClientSession() as session:
         async with session.get(url, params=params, raise_for_status=True, ssl=False) as response:
