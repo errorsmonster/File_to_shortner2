@@ -89,8 +89,10 @@ async def private_receive_handler(c: Client, m: Message):
                 disable_web_page_preview=True)
             return
     try:
-        log_msg = await broadcast.forward(chat_id=Var.BIN_CHANNEL)
-        stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+        log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
+        file_name = get_media_file_name(m)
+        file_hash = get_hash(log_msg, Var.HASH_LENGTH)
+        stream_link = "https://{}/{}/{}?hash={}".format(Var.FQDN, log_msg.id, file_name, file_hash) if Var.ON_HEROKU or Var.NO_PORT else \
             "http://{}:{}/{}/{}?hash={}".format(Var.FQDN,
                                     Var.PORT,
                                     log_msg.id,
@@ -145,8 +147,10 @@ async def channel_receive_handler(bot, broadcast):
         await bot.leave_chat(broadcast.chat.id)
         return
     try:
-        log_msg = await broadcast.forward(chat_id=Var.BIN_CHANNEL)
-        stream_link = f"{Var.URL}watch/{str(log_msg.id)}/{quote_plus(get_name(log_msg))}?hash={get_hash(log_msg)}"
+        log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
+        file_name = get_media_file_name(m)
+        file_hash = get_hash(log_msg, Var.HASH_LENGTH)
+        stream_link = "https://{}/{}/{}?hash={}".format(Var.FQDN, log_msg.id, file_name, file_hash) if Var.ON_HEROKU or Var.NO_PORT else \
             "http://{}:{}/{}/{}?hash={}".format(Var.FQDN,
                                     Var.PORT,
                                     log_msg.id,
