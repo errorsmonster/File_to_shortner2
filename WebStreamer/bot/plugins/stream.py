@@ -123,10 +123,10 @@ async def private_receive_handler(c: Client, m: Message):
 
         await log_msg.reply_text(text=f"<b>Request By :- <a href='tg://user?id={m.from_user.id}'>{m.from_user.first_name}</a>\nID :- <code>{m.from_user.id}</code>\n📥 Download Link :- {stream_link}</b>", disable_web_page_preview=True, parse_mode=ParseMode.HTML, quote=True)
         await m.reply_text(
-            text=msg_text.format(file_name, file_size, file_caption, shortened_stream_link, shortened_watch_link),
+            text=msg_text.format(file_name, file_size, file_caption, stream_link, watch_link),
             parse_mode=ParseMode.HTML, 
             disable_web_page_preview=True,
-            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Fast Download Link", url=shortened_stream_link)], [InlineKeyboardButton("🖥 Watch Link", url=shortened_watch_link)], [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/i_Movieee")], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/bot_channel_011")]]),
+            reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("📥 Fast Download Link", url=stream_link)], [InlineKeyboardButton("🖥 Watch Link", url=watch_link)], [InlineKeyboardButton("🎥 Movie Updates", url="https://t.me/i_Movieee")], [InlineKeyboardButton("🔥 Update Channel", url="https://t.me/bot_channel_011")]]),
             quote=True
         )
     except FloodWait as e:
